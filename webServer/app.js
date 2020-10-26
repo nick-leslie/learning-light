@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
+const helmet = require('helmet')
 //--------------------------------
 const jobsRoute = require('./src/routes/jobRoute');
 const loginRoute = require('./src/routes/roomLogin');
@@ -13,6 +14,7 @@ const statusState = require('./src/state/statusState')
 //--------------------------------
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(helmet());
 // var myLogger = function (req, res, next) {
 //     console.log('there is a request')
 //     next()

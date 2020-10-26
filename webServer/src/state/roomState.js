@@ -7,8 +7,7 @@ let roomTeachers = ["ciras","crossman"];
 // these should be hashed
 let admin = {"adm":"admin"};
 let teacher = {"testPass":0};
-
-
+let macToTeacher = {"c8:2b:96:30:09:e9":"crossman"}
 
 //genarates an object where each key is maped to a teacher
 module.exports.populateKeys = () => {
@@ -63,4 +62,7 @@ module.exports.listTeachers = () => {
 module.exports.grabTeacherAtIndex = (index) => {
     console.log(roomTeachers[index]);
     return roomTeachers[index];
+}
+module.exports.grabTeacherFromMac = function(mac) {
+    return macToTeacher[mac]
 }

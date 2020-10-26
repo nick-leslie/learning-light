@@ -17,8 +17,8 @@ const server = http.createServer(app);
 const httpsServer = https.createServer(options,app).listen(80);
 console.log("server starting " + port);
 
-server.listen(port)
 
+server.listen(port)
 
 
 
