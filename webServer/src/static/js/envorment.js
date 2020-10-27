@@ -1,4 +1,4 @@
 function ip() {
-    let serverAdress ="localhost"//change this for server
+    let serverAdress ="18.225.29.152"//change this for server
     return serverAdress;
 }
