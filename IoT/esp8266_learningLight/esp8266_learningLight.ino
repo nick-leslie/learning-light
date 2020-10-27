@@ -54,7 +54,7 @@ void loop() {
     HTTPClient http;
 
     Serial.print("[HTTP] begin...\n");
-    String httpString =  "http://10.1.1.240:1234/jobs";
+    String httpString =  "http://18.225.29.152:1234/jobs";
     DynamicJsonDocument doc(2048);
     doc["macAdress"] = "crossman"; 
     //swap to our web server
