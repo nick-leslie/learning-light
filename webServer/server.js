@@ -34,7 +34,7 @@ function printLocalIp()
                 if (!results[name]) {
                     results[name] = [];
                 }
-
+                
                 results[name].push(net.address);
             }
         }

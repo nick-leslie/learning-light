@@ -8,16 +8,20 @@ const tokenVerification = require('../verification/decryoptApiKey');
 router.post("/",(req,res) => {
     let roomKey = req.body.key;
     console.log(req.body);
+    //re name this this is not great
+    //grabs the teacher from the rook key ether that or 
     let teacher = roomState.grabTeacher(roomKey);
     console.log(teacher);
     //returns the teacher of the given room key so the students can send jobs right to the teacher
     if(teacher !== false) {
         if(roomState.grabTeacherAtIndex(teacher) != undefined) {
+            // this returns the key for the spesific teacher
             res.status(200).send({message:"you have loged into teacher",status:"teacher",token:tokenGen.addNewKey(teacher,"teacher"), keys:roomState.grabRoomKeys(roomState.grabTeacherAtIndex(teacher))});
         }else if(teacher=="admin") {
             // this is the admin route that returns all keys
             res.status(200).send({message:"you have loged into admin",status:"admin",token:tokenGen.addNewKey(teacher,"admin"), keys:roomState.grabRooms()});
         } else {
+            // this will give you a jwt that alow you to talk to the light
             res.status(200).send({message:"you have logged in to a room",status:"student" , token:tokenGen.addNewKey(teacher,"student")});
         }
     } else {

@@ -17,7 +17,7 @@ ESP8266WiFiMulti WiFiMulti;
 bool lightState = false;
 unsigned long lightOnTime;
 static unsigned long millTillOff = 500000;
-
+static int REQUESTDELAY=500;
 void setup() {
 
   Serial.begin(115200);
@@ -43,6 +43,10 @@ void setup() {
   digitalWrite(ledPin, HIGH);
   delay(1000);
   digitalWrite(ledPin, LOW);
+  delay(500);
+  digitalWrite(warning,HIGH);
+  delay(1000);
+  digitalWrite(warning,LOW);
 }
 
 void loop() {
@@ -54,9 +58,9 @@ void loop() {
     HTTPClient http;
 
     Serial.print("[HTTP] begin...\n");
-    String httpString =  "http://18.225.29.152:1234/jobs";
+    String httpString =  "http://learning-light-1173896254.us-east-2.elb.amazonaws.com/jobs";
     DynamicJsonDocument doc(2048);
-    doc["macAdress"] = "crossman"; 
+    doc["macAdress"] = "ciras"; 
     //swap to our web server
     if(lightState==true) {
       doc["status"] = "true";
@@ -117,5 +121,5 @@ void loop() {
     digitalWrite(warning,HIGH);
   }
   // lower the dealy
-  delay(2000);
+  delay(REQUESTDELAY);
 }
