@@ -1,4 +1,5 @@
 let lightOn = false;
+let previoiusState;
 $(document).ready(function() {
     $(".requstButtion").click(()=> {
         lightOn = !lightOn;
@@ -24,17 +25,6 @@ $(document).ready(function() {
         console.log(job);
         return job;
     }
-    // get this to return the public ip
-    // function ipAdress() {
-    //     $(function() {
-    //         $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
-    //             function(json) {
-    //                 console.log(json.ip);
-    //                 ip = json.ip
-    //             }
-    //         );
-    //     });
-    // }
 });
 function startGetingState(teacher) {
     setInterval(() => {
@@ -52,14 +42,17 @@ function startGetingState(teacher) {
                 console.log(lightOn + "in state check")
             }
         });
-    }, 5000);
+    }, 500);
 }
 function changeLightState(state) {
-    if(state == true) {
-    $('.state').text("the light is:ON");
-    } else {
-        $('.state').text("the light is:OFF");
+    if(state==previoiusState) {
+        if(state == true) {
+        $('.state').text("the light is:ON");
+        } else {
+            $('.state').text("the light is:OFF");
+        }
     }
+    previoiusState=state;
 }
 function stringToBool(string) {
     string = string.toLowerCase();

@@ -15,11 +15,7 @@ const statusState = require('./src/state/statusState')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(helmet());
-// var myLogger = function (req, res, next) {
-//     console.log('there is a request')
-//     next()
-// }
-// app.use('/',myLogger);
+
 
 app.use("/",express.static('./src/static'));
 app.use("/jobs",jobsRoute);
