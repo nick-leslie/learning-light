@@ -8,7 +8,7 @@ $(document).ready(function() {
             type: 'POST',
             crossDomain: true,
             dataType: 'JSON',
-            url: 'http://' + ip() + ':1234/jobs/request', // put server ip in an envorment varuble
+            url:   ip() + 'jobs/request', // put server ip in an envorment varuble
             data: jobConstructor(lightOn.toString(),10000),
             success: function(jsondata){
                 console.log(jsondata);
@@ -33,7 +33,7 @@ function startGetingState(teacher) {
             crossDomain: true,
             dataType: 'JSON',
             //un hard code this latter
-            url: 'http://' + ip() + ':1234/status', // put server ip in an envorment varuble
+            url:  ip() + 'status', // put server ip in an envorment varuble
             data: {token:sessionStorage.Token},
             success: function(jsondata){
                 console.log(jsondata);
