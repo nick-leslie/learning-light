@@ -9,7 +9,7 @@ router.post("/",(req,res) => {
     let roomKey = req.body.key;
     console.log(req.body);
     //re name this this is not great
-    //grabs the teacher from the rook key ether that or 
+    //grabs the teacher from the room key ether that or 
     let teacher = roomState.grabTeacher(roomKey);
     console.log(teacher);
     //returns the teacher of the given room key so the students can send jobs right to the teacher

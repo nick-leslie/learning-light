@@ -4,7 +4,7 @@ $(".login").click(() => {
         type: 'POST',
         crossDomain: true,
         dataType: 'JSON',
-        url: 'http://'+ ip() +':1234/login',
+        url:  ip() +'login',
         data: {key: $(".code").val()},
         success: function(jsondata){
             console.log(jsondata);
