@@ -1,16 +1,21 @@
 const idGen = require('shortid');
 
 
-let rooms = {};
-// all this should be in a data bace
+// these will be populated from the state loader
 let roomTeachers = ["ciras","crossman"];
-// these should be hashed
+let rooms = {};
 let admin = {"adm":"admin"};
 let teacher = {"testPass":0};
 let macToTeacher = {"c8:2b:96:30:09:e9":"crossman"}
 
+module.exports.setup = () => {
+
+    //populates keys once all is loaded
+    populateKeys();
+}
+
 //genarates an object where each key is maped to a teacher
-module.exports.populateKeys = () => {
+function populateKeys() {
     let keys = [];
     rooms = {};
     for (let i = 0; i < roomTeachers.length; i++) {

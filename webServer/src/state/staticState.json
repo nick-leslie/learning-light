@@ -1,0 +1,13 @@
+{
+    "teacers": [
+        "ciras",
+        "crossman"
+    ],
+    "Administators":"adm",
+    "teacherPasses": {
+        "testPass":0
+    },
+    "lightLookup": {
+        "c8:2b:96:30:09:e9":"crossman"
+    }
+}
