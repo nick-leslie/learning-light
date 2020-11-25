@@ -23,7 +23,7 @@ app.use("/login",loginRoute);
 app.use("/status",statusRoute);
 onStartUp();
 async function onStartUp() {
-    await roomState.populateKeys();
+    //await roomState.populateKeys();
     await statusState.populateStatus();
     //console.log(roomState.grabRoomKeys());
 }
