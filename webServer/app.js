@@ -23,9 +23,8 @@ app.use("/login",loginRoute);
 app.use("/status",statusRoute);
 onStartUp();
 async function onStartUp() {
-    await roomState.setup();
+    await console.log(roomState.setup());
     await statusState.populateStatus();
-    console.log(roomState.grabRoomKeys());
 }
 
 module.exports = app;

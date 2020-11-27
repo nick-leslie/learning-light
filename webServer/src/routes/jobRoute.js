@@ -30,7 +30,8 @@ router.post("/",(req,res)=> {
         res.status(200).send(jobs);
     } else {
         // returns no work
-        res.status(200).send({message:"no work"});
+        console.log(teacher)
+        res.status(200).send({message:`no work for ${teacher}`});
     }
 });
 // this is requesting to put a job in the web cite

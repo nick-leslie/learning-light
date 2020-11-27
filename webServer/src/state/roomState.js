@@ -14,7 +14,6 @@ module.exports.setup = () => {
     roomTeachers = staticState.getListOfTeachers();
     macToTeacher = staticState.getLightLookupTable();
     admin = staticState.getListOfAdmins();
-    console.log(admin);
     teacher = staticState.getTeacherPasswords();
     //populates keys once all is loaded
     return populateKeys();
@@ -32,7 +31,6 @@ function populateKeys() {
         //console.log(keys[i]);
         rooms[keys[i]]=roomTeachers[i];   
     }
-    console.log(rooms);
     return rooms;
 }
 //grabs teacher from room rename nessesary
