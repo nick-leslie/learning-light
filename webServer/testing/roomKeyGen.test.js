@@ -1,6 +1,6 @@
 const roomState = require('../src/state/roomState')
 test('tests room key genaration and grabing all rooms', () => {
-    let roomKeys =  roomState.populateKeys();
+    let roomKeys =  roomState.setup();
     expect(roomKeys).toStrictEqual(roomState.grabRooms());
 });
 

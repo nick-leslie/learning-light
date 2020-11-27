@@ -1,9 +1,11 @@
 {
-    "teacers": [
+    "teachers": [
         "ciras",
         "crossman"
     ],
-    "Administators":"adm",
+    "admins": {
+        "Administators":"adm"
+    },
     "teacherPasses": {
         "testPass":0
     },

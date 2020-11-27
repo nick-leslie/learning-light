@@ -1,7 +1,7 @@
 const roomState = require('../src/state/roomState');
 
 test('testing populating room keys and then grabing a teacher from a room key', () => {
-    let keys = roomState.populateKeys()
+    let keys = roomState.setup()
     //console.log(listAllProperties(keys))
 
 

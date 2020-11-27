@@ -1,5 +1,5 @@
 const idGen = require('shortid');
-
+const staticState = require('./stateLoader');
 
 // these will be populated from the state loader
 let roomTeachers = ["ciras","crossman"];
@@ -9,9 +9,13 @@ let teacher = {"testPass":0};
 let macToTeacher = {"c8:2b:96:30:09:e9":"crossman"}
 
 module.exports.setup = () => {
-
+    roomTeachers = staticState.getListOfTeachers();
+    console.log(roomTeachers);
+    macToTeacher = staticState.getLightLookupTable();
+    admin = staticState.getListOfAdmins();
+    teacher = staticState.getTeacherPasswords();
     //populates keys once all is loaded
-    populateKeys();
+    return populateKeys();
 }
 
 //genarates an object where each key is maped to a teacher
