@@ -5,7 +5,7 @@ module.exports.AddJob = (job) => {
     console.log(jobs);
 }
 module.exports.grabJob = (teacher) => {
-    //console.log(classroom);
+    console.log(teacher);
     if(jobs.length > 0) {
         let requestedJobs = [];
         for (let i = 0; i < jobs.length; i++) {

@@ -1,9 +1,13 @@
 let lightOn = false;
 let previoiusState;
+//the goal is to make it so when the user presses the botton it resets the timer
+// add a dobble check
 $(document).ready(function() {
     $(".requstButtion").click(()=> {
         lightOn = !lightOn;
         changeLightState(lightOn);
+        previoiusState = lightOn;
+        skipTimeStep = true;
         $.ajax({
             type: 'POST',
             crossDomain: true,
@@ -28,31 +32,28 @@ $(document).ready(function() {
 });
 function startGetingState(teacher) {
     setInterval(() => {
-        $.ajax({
-            type: 'POSt',
-            crossDomain: true,
-            dataType: 'JSON',
-            //un hard code this latter
-            url:  ip() + 'status', // put server ip in an envorment varuble
-            data: {token:sessionStorage.Token},
-            success: function(jsondata){
-                console.log(jsondata);
-                changeLightState(stringToBool(jsondata.status));
-                lightOn = stringToBool(jsondata.status);
-                console.log(lightOn + "in state check")
-            }
-        });
-    }, 500);
+            $.ajax({
+                type: 'POSt',
+                crossDomain: true,
+                dataType: 'JSON',
+                //un hard code this latter
+                url:  ip() + 'status', // put server ip in an envorment varuble
+                data: {token:sessionStorage.Token},
+                success: function(jsondata){
+                    console.log(jsondata);
+                    changeLightState(stringToBool(jsondata.status));
+                    lightOn = stringToBool(jsondata.status);
+                    console.log(lightOn + "in state check")
+                }
+            });
+    }, 1000);
 }
 function changeLightState(state) {
-    if(state==previoiusState) {
         if(state == true) {
-        $('.state').text("the light is:ON");
+            $('.state').text("the light is:ON");
         } else {
             $('.state').text("the light is:OFF");
         }
-    }
-    previoiusState=state;
 }
 function stringToBool(string) {
     string = string.toString().toLowerCase();

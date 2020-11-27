@@ -13,11 +13,8 @@ router.post("/",(req,res)=> {
     let mac = req.body.macAdress;
     //grabs teacher from mac
     let teacher = roomState.grabTeacherFromMac(mac);
-    console.log(teacher);
     // grabs singal job from the job que to retrun to the arducino
     let jobs = jobList.grabJob(teacher);
-
-
     //manipulates the status of a spesifc room so the room reflects the light
     let status = req.body.status;
     statusState.maniplauteTeacherStatus(teacher,status);
@@ -30,7 +27,6 @@ router.post("/",(req,res)=> {
         res.status(200).send(jobs);
     } else {
         // returns no work
-        console.log(teacher)
         res.status(200).send({message:`no work for ${teacher}`});
     }
 });
@@ -43,6 +39,7 @@ router.post("/request",(req,res)=> {
     if(token != false ) {
     // if token is valid create a job with at teacher cmd and time
     let job = jobConstructor.createJob(token.teacher,req.body.cmd,req.body.time);
+    console.log(job);
     //add job to the list of jobs
     jobList.AddJob(job);
     //respond to tell the server it worked
