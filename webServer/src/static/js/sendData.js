@@ -55,7 +55,7 @@ function changeLightState(state) {
     previoiusState=state;
 }
 function stringToBool(string) {
-    string = string.toLowerCase();
+    string = string.toString().toLowerCase();
     if(string == 'true') {
         return true;
     } else if(string == 'false') {

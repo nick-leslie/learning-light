@@ -1,3 +1,4 @@
+const { default: contentSecurityPolicy } = require('helmet/dist/middlewares/content-security-policy');
 const idGen = require('shortid');
 const staticState = require('./stateLoader');
 
@@ -9,10 +10,11 @@ let teacher = {"testPass":0};
 let macToTeacher = {"c8:2b:96:30:09:e9":"crossman"}
 
 module.exports.setup = () => {
+    console.log('room setup beein called')
     roomTeachers = staticState.getListOfTeachers();
-    console.log(roomTeachers);
     macToTeacher = staticState.getLightLookupTable();
     admin = staticState.getListOfAdmins();
+    console.log(admin);
     teacher = staticState.getTeacherPasswords();
     //populates keys once all is loaded
     return populateKeys();

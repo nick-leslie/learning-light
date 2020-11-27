@@ -16,7 +16,6 @@ function readFile() {
 module.exports.readAllJson = function readAllJson() {
    let raw = readFile()
    let json = JSON.parse(raw);
-   console.log(json);
    return json;
 }
 //--------------------- perpious readers
