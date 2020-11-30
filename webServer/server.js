@@ -14,7 +14,7 @@ const port = process.env.port || 1234;//replace with an enviorment varuble
 printLocalIp();
 
 const server = http.createServer(app);
-const httpsServer = https.createServer(options,app).listen(80);
+//const httpsServer = https.createServer(options,app).listen(80);
 console.log("server starting " + port);
 
 
