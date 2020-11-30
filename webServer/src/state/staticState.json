@@ -1,7 +1,8 @@
 {
     "teachers": [
         "ciras",
-        "crossman"
+        "crossman",
+        "fidrich"
     ],
     "admins": {
         "adm":"admin"
@@ -11,6 +12,7 @@
     },
     "lightLookup": {
         "C8:2B:96:30:32:BB":"crossman",
-        "40:F5:20:0C:1C:95":"ciras"
+        "40:F5:20:0C:1C:95":"ciras",
+        "40:F5:20:2D:2B:6F":"fidrich"
     }
 }
