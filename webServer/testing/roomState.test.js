@@ -10,7 +10,7 @@ test('testing populating room keys and then grabing a teacher from a room key', 
     expect(keys[listAllProperties(keys)[0]]).toStrictEqual(teacher);
 });
 test('testing the grab teacher from mac function', () => {
-    expect(roomState.grabTeacherFromMac('c8:2b:96:30:09:e9')).toStrictEqual('crossman')
+    expect(roomState.grabTeacherFromMac('C8:2B:96:30:32:BB')).toStrictEqual('crossman')
 });
 function listAllProperties(o) {
     var objectToInspect;     
