@@ -107,7 +107,7 @@ void loop() {
       } else {
         Serial.printf("[HTTP] %d\n",httpCode);
         Serial.printf("[HTTP] GET... failed, error: %s\n", http.errorToString(httpCode).c_str());
-        digitalWrite(ledPin,HIGH);
+        digitalWrite(warning,HIGH);
       }
 
       http.end();

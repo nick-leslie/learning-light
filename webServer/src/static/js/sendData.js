@@ -1,12 +1,12 @@
 let lightOn = false;
 let previoiusState;
 //the goal is to make it so when the user presses the botton it resets the timer
-// add a dobble check
+let skipTimeStep = false;
+let proposedState;
 $(document).ready(function() {
     $(".requstButtion").click(()=> {
         lightOn = !lightOn;
         changeLightState(lightOn);
-        previoiusState = lightOn;
         skipTimeStep = true;
         $.ajax({
             type: 'POST',
@@ -41,19 +41,25 @@ function startGetingState(teacher) {
                 data: {token:sessionStorage.Token},
                 success: function(jsondata){
                     console.log(jsondata);
-                    changeLightState(stringToBool(jsondata.status));
-                    lightOn = stringToBool(jsondata.status);
+                    if(lightOn != stringToBool(jsondata.status)) {
+                        if(stringToBool(jsondata.status) == proposedState) {
+                            changeLightState(stringToBool(jsondata.status));
+                            lightOn = stringToBool(jsondata.status);
+                        } else {
+                            proposedState = stringToBool(jsondata.status)
+                        }
+                    } 
                     console.log(lightOn + "in state check")
                 }
             });
     }, 1000);
 }
 function changeLightState(state) {
-        if(state == true) {
-            $('.state').text("the light is:ON");
-        } else {
-            $('.state').text("the light is:OFF");
-        }
+    if(state == true) {
+        $('.state').text("the light is:ON");
+    } else {
+        $('.state').text("the light is:OFF");
+    }
 }
 function stringToBool(string) {
     string = string.toString().toLowerCase();
