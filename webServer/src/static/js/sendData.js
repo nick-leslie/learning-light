@@ -3,22 +3,27 @@ let previoiusState;
 //the goal is to make it so when the user presses the botton it resets the timer
 let skipTimeStep = false;
 let proposedState;
+let timePressed = 0;
 $(document).ready(function() {
-    $(".requstButtion").click(()=> {
-        lightOn = !lightOn;
-        changeLightState(lightOn);
-        skipTimeStep = true;
-        $.ajax({
-            type: 'POST',
-            crossDomain: true,
-            dataType: 'JSON',
-            url:   ip() + 'jobs/request', // put server ip in an envorment varuble
-            data: jobConstructor(lightOn.toString(),10000),
-            success: function(jsondata){
-                console.log(jsondata);
-            }
+    let dateManiger = new Date();
+    if(dateManiger.getTime() - timePressed >= 5000) {
+        $(".requstButtion").click(()=> {
+                timePressed = dateManiger.getTime()
+                lightOn = !lightOn;
+                changeLightState(lightOn);
+                skipTimeStep = true;
+                $.ajax({
+                    type: 'POST',
+                    crossDomain: true,
+                    dataType: 'JSON',
+                    url:   ip() + 'jobs/request', // put server ip in an envorment varuble
+                    data: jobConstructor(lightOn.toString(),10000),
+                    success: function(jsondata){
+                        console.log(jsondata);
+                    }
+                });
         });
-    });
+    }
     function jobConstructor(cmd,time) {
         let job = 
         { 
@@ -30,7 +35,7 @@ $(document).ready(function() {
         return job;
     }
 });
-function startGetingState(teacher) {
+function startGetingState() {
     setInterval(() => {
             $.ajax({
                 type: 'POSt',

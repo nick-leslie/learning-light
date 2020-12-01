@@ -20,6 +20,9 @@
   display: inline;
 }
 */
+body {
+  background-color: #001e60;
+}
 .buttons {
   padding: 15px 25px;
   font-size: 24px;
@@ -27,16 +30,16 @@
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #f4ce5b;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
 
-.buttons:hover {background-color: #3e8e41}
+.buttons:hover {background-color: #e0be58}
 
 .buttons:active {
-  background-color: #3e8e41;
+  background-color: #ffd147;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
